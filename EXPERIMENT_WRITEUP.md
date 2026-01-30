@@ -72,9 +72,9 @@ No system prompts, role-playing instructions, or additional context were provide
 
 | Model | Correct | Total | Accuracy |
 |-------|---------|-------|----------|
-| **Gemini 3 Pro** | 21 | 21 | **100%** |
+| **Gemini 3 Pro** | 20 | 21 | **95.2%** |
 | **Claude Opus 4.5** | 20 | 21 | **95.2%** |
-| **GPT-5.2** | 16 | 21 | **76.2%** |
+| **GPT-5.2** | 17 | 21 | **81.0%** |
 
 ### Question-by-Question Breakdown
 
@@ -88,7 +88,7 @@ No system prompts, role-playing instructions, or additional context were provide
 | 6 | Constitutional Law | A | A ✓ | D ✗ | A ✓ |
 | 7 | Contracts (UCC) | C | C ✓ | C ✓ | C ✓ |
 | 8 | Real Property | D | D ✓ | D ✓ | D ✓ |
-| 9 | Criminal Law | A | A ✓ | B ✗ | A ✓ |
+| 9 | Criminal Law | A | A ✓ | A ✓ | A ✓ |
 | 10 | Civil Procedure | B | B ✓ | C ✗ | B ✓ |
 | 11 | Contracts | C | C ✓ | C ✓ | C ✓ |
 | 12 | Real Property | A | A ✓ | B ✗ | A ✓ |
@@ -97,23 +97,25 @@ No system prompts, role-playing instructions, or additional context were provide
 | 15 | Torts | C | C ✓ | C ✓ | C ✓ |
 | 16 | Civil Procedure | A | A ✓ | A ✓ | A ✓ |
 | 17 | Torts | D | D ✓ | D ✓ | D ✓ |
-| 18 | Contracts | D | D ✓ | D ✓ | D ✓ |
+| 18 | Contracts | D | B ✗ | D ✓ | D ✓ |
 | 19 | Evidence | B | B ✓ | B ✓ | B ✓ |
 | 20 | Real Property | C | C ✓ | C ✓ | C ✓ |
 | 21 | Criminal Law | B | B ✓ | B ✓ | B ✓ |
 
 ### Error Analysis
 
-**Gemini 3 Pro Errors (0 questions):**
-Gemini 3 Pro answered all 21 questions correctly.
+**Gemini 3 Pro Errors (1 question):**
 
-**GPT-5.2 Errors (5 questions):**
+| Q# | Topic | Gemini Answer | Correct | Issue |
+|----|-------|---------------|---------|-------|
+| 18 | Contracts | B | D | Misapplied contract formation rules |
+
+**GPT-5.2 Errors (4 questions):**
 
 | Q# | Topic | GPT-5.2 Answer | Correct | Issue |
 |----|-------|----------------|---------|-------|
 | 4 | Strict liability for dangerous animals | B (trespassing defense) | A (knew of danger) | Misapplied strict liability doctrine |
 | 6 | Supreme Court jurisdiction | D (independent state grounds) | A (wholly federal grounds) | Confused adequate and independent state grounds doctrine |
-| 9 | Conspiracy at common law | B (conspiracy) | A (no crime) | Failed to recognize lack of genuine agreement |
 | 10 | Rule 11 sanctions | C (failed pre-filing inquiry) | B (safe harbor violation) | Overlooked procedural requirement |
 | 12 | Adverse possession | B (fee simple determinable) | A (fee simple absolute via AP) | Miscalculated adverse possession timeline |
 
@@ -127,41 +129,37 @@ Gemini 3 Pro answered all 21 questions correctly.
 
 | Subject | Questions | Gemini | GPT-5.2 | Claude |
 |---------|-----------|--------|---------|--------|
-| Criminal Law | 4 | 100% (4/4) | 75% (3/4) | 100% (4/4) |
+| Criminal Law | 4 | 100% (4/4) | 100% (4/4) | 100% (4/4) |
 | Evidence | 3 | 100% (3/3) | 100% (3/3) | 67% (2/3) |
 | Constitutional Law | 3 | 100% (3/3) | 67% (2/3) | 100% (3/3) |
-| Contracts | 3 | 100% (3/3) | 100% (3/3) | 100% (3/3) |
+| Contracts | 3 | 67% (2/3) | 100% (3/3) | 100% (3/3) |
 | Civil Procedure | 3 | 100% (3/3) | 67% (2/3) | 100% (3/3) |
 | Real Property | 3 | 100% (3/3) | 67% (2/3) | 100% (3/3) |
 | Torts | 2 | 100% (2/2) | 50% (1/2) | 100% (2/2) |
 
 ## Key Findings
 
-### 1. Gemini 3 Pro Achieves Perfect Score
-Gemini 3 Pro answered all 21 questions correctly (100%). This is a notable result that either indicates:
-- Superior legal reasoning capabilities
-- Higher likelihood of memorization from training data
-- Or both
+### 1. Gemini 3 Pro and Claude Opus 4.5 Tied at 95.2%
+Both Gemini 3 Pro and Claude Opus 4.5 achieved 95.2% accuracy (20/21), each missing only one question. Gemini missed Q18 (Contracts), while Claude missed Q14 (Evidence).
 
 ### 2. Claude Opus 4.5 Demonstrates Strong Legal Reasoning
-With 95.2% accuracy, Claude significantly outperformed GPT-5.2 (76.2%)—a **19 percentage point difference**. Claude's single error was on a procedural evidence question requiring precise knowledge of FRE 615 exceptions.
+With 95.2% accuracy, Claude significantly outperformed GPT-5.2 (81.0%)—a **14 percentage point difference**. Claude's single error was on a procedural evidence question requiring precise knowledge of FRE 615 exceptions.
 
 ### 3. GPT-5.2 Struggles with Nuanced Legal Doctrines
 GPT-5.2's errors clustered around questions requiring:
 - Precise application of strict liability rules
 - Understanding of procedural requirements (Rule 11 safe harbor)
-- Common law criminal concepts (conspiracy requiring genuine agreement)
 - Complex property calculations (adverse possession timing)
 
 ### 4. All Models Excel at Core Legal Concepts
 All three models achieved 100% accuracy on Contracts questions and performed well on straightforward applications of legal rules.
 
 ### 5. Model Agreement as a Confidence Signal
-When all three models agreed on an answer, they were correct **100% of the time**. Disagreement occurred on 6 questions total—Gemini and Claude agreed on all answers except where Claude missed Q14.
+When all three models agreed on an answer, they were correct **100% of the time**. Disagreement occurred on 6 questions total.
 
 ## Suggested Visualizations
 
-1. **Bar Chart**: Side-by-side accuracy comparison (Claude 95.2% vs GPT-5.2 76.2%)
+1. **Bar Chart**: Side-by-side accuracy comparison (Gemini 95.2% vs Claude 95.2% vs GPT-5.2 81.0%)
 
 2. **Heatmap**: Question-by-question results showing correct (green), incorrect (red), and missing (gray) for each model
 
@@ -181,15 +179,9 @@ The results present an interesting pattern:
 
 | Observation | Implication |
 |-------------|-------------|
-| Gemini 3 Pro achieved 100% | Could indicate memorization OR superior reasoning |
-| Claude achieved 95.2% | Near-perfect but not memorized verbatim |
-| GPT-5.2 scored only 76.2% | Significant gap despite likely exposure |
+| Gemini 3 Pro and Claude tied at 95.2% | Both models demonstrate strong legal reasoning |
+| GPT-5.2 scored 81.0% | Meaningful gap despite likely exposure |
 | Models disagreed on 6 questions | No universally "locked in" answer key |
-
-**Gemini's perfect score is notable.** It either indicates:
-- Superior legal reasoning capabilities
-- Higher likelihood of memorization from training data
-- Or both
 
 **Possible explanations for the variance:**
 1. **Training data quality**: Different models may have encountered cleaner or noisier versions of the Q&A pairs
@@ -235,19 +227,19 @@ This preliminary test reveals a clear performance hierarchy:
 
 | Rank | Model | Accuracy |
 |------|-------|----------|
-| 1 | Gemini 3 Pro | 100% |
-| 2 | Claude Opus 4.5 | 95.2% |
-| 3 | GPT-5.2 | 76.2% |
+| 1 (tie) | Gemini 3 Pro | 95.2% |
+| 1 (tie) | Claude Opus 4.5 | 95.2% |
+| 3 | GPT-5.2 | 81.0% |
 
-**Gemini 3 Pro's perfect score is notable.** It either indicates superior legal reasoning capabilities, higher likelihood of memorization from training data, or both. Without access to reasoning chains, we cannot definitively distinguish between these explanations.
+**Gemini 3 Pro and Claude Opus 4.5 are tied** at 95.2% accuracy, each missing only one question. Both models demonstrate strong legal reasoning capabilities.
 
 **Claude Opus 4.5 remains a robust choice** for legal AI applications. Its near-perfect performance (95.2%) with only a single error suggests strong inherent legal reasoning, and its one mistake (FRE 615 witness exclusion rule) represents a narrow procedural gap rather than a fundamental reasoning weakness.
 
-**GPT-5.2's performance (76.2%)** indicates meaningful weaknesses in nuanced legal doctrines—particularly strict liability, procedural rules, and complex property calculations.
+**GPT-5.2's performance (81.0%)** indicates meaningful weaknesses in nuanced legal doctrines—particularly strict liability, procedural rules, and complex property calculations.
 
 ### Key Takeaway
 
-Both **Gemini 3 Pro and Claude Opus 4.5** appear to be solid vanilla models for legal AI applications. Gemini's perfect score warrants consideration, though Claude's near-miss provides more signal about where its reasoning boundaries lie. Further evaluation—including reasoning chain analysis, larger question sets, and novel test materials—would strengthen confidence in model selection.
+Both **Gemini 3 Pro and Claude Opus 4.5** appear to be solid vanilla models for legal AI applications. Their tied performance (95.2%) makes either a strong choice, with each model missing a different question. Further evaluation—including reasoning chain analysis, larger question sets, and novel test materials—would strengthen confidence in model selection.
 
 ### Recommendations
 
