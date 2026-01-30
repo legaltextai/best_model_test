@@ -8,9 +8,9 @@ Evaluating frontier LLM models on official MBE (Multistate Bar Examination) samp
 
 | Model | Accuracy | Notes |
 |-------|----------|-------|
-| Gemini 3 Pro | 100% (21/21) | Perfect score |
-| Claude Opus 4.5 | 95.2% (20/21) | 1 mistake |
-| GPT-5.2 | 76.2% (16/21) | 5 mistakes |
+| Gemini 3 Pro | 95.2% (20/21) | 1 mistake (Q18) |
+| Claude Opus 4.5 | 95.2% (20/21) | 1 mistake (Q14) |
+| GPT-5.2 | 81.0% (17/21) | 4 mistakes |
 
 See [EXPERIMENT_WRITEUP.md](EXPERIMENT_WRITEUP.md) for detailed analysis.
 
@@ -49,4 +49,4 @@ The script queries all three models on 21 MBE questions and compares responses a
 
 ## Personal Impression
 
-I've been obsessed with Opus 4.5 and considered it quite a superior model for my daily research tasks. These results suggest Gemini 3 Pro deserves a closer look.
+I've been obsessed with Opus 4.5 and considered it quite a superior model for my daily research tasks. With temperature=0 for deterministic output, Gemini 3 Pro and Claude Opus 4.5 are tied at 95.2%.
