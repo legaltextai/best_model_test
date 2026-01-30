@@ -68,6 +68,7 @@ def query_gemini(questions: list[dict]) -> dict:
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema=MBEAnswer,
+                temperature=0,
             ),
         )
 
@@ -98,6 +99,7 @@ def query_openai(questions: list[dict]) -> dict:
 
         response = client.chat.completions.create(
             model="gpt-5.2",
+            temperature=0,
             messages=[
                 {
                     "role": "user",
@@ -169,6 +171,7 @@ def query_claude(questions: list[dict]) -> dict:
         response = client.messages.create(
             model="claude-opus-4-5-20251101",
             max_tokens=100,
+            temperature=0,
             tools=[answer_tool],
             tool_choice={"type": "tool", "name": "submit_answer"},
             messages=[
