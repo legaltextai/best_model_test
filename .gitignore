@@ -1,0 +1,16 @@
+# Environment variables (contains secrets)
+.env
+
+# Generated output files
+mbe_api_results.json
+gemini_results.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
