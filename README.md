@@ -38,6 +38,7 @@ The script queries all three models on 21 MBE questions and compares responses a
 
 - `mbe_api_test.py` - Main test script
 - `mbe_sample_questions.json` - 21 official NCBE sample questions
+- `MBE Sample Test Questions.pdf` - Original NCBE PDF with answer key (page 6)
 - `EXPERIMENT_WRITEUP.md` - Detailed methodology and analysis
 
 ## Models Tested
