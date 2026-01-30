@@ -6,11 +6,11 @@ Evaluating frontier LLM models on official MBE (Multistate Bar Examination) samp
 
 ## Results
 
-| Model | Accuracy |
-|-------|----------|
-| Gemini 3 Pro | 100% (21/21) |
-| Claude Opus 4.5 | 95.2% (20/21) |
-| GPT-5.2 | 76.2% (16/21) |
+| Model | Accuracy | Notes |
+|-------|----------|-------|
+| Gemini 3 Pro | 100% (21/21) | Perfect score |
+| Claude Opus 4.5 | 95.2% (20/21) | 1 mistake |
+| GPT-5.2 | 76.2% (16/21) | 5 mistakes |
 
 See [EXPERIMENT_WRITEUP.md](EXPERIMENT_WRITEUP.md) for detailed analysis.
 
